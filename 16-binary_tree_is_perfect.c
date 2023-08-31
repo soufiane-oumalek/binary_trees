@@ -10,10 +10,12 @@ int tree_is_perfect_binary(const binary_tree_t *tree)
 
 	if (tree->left && tree->right)
 	{
-		left = 1 + tree_is_perfect(tree->left);
-		right = 1 + tree_is_perfect(tree->right);
+		left = 1 + tree_is_perfect_binary(tree->left);
+		right = 1 + tree_is_perfect_binary(tree->right);
 		if (right == left && right != 0 && left != 0)
+		{
 			return (right);
+		}
 		return (0);
 	}
 	else if (!tree->left && !tree->right)
